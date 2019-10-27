@@ -1,0 +1,202 @@
+
+body{
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+.calculator{
+    width: 960px;
+    padding-top: 200px;
+    margin: 150px auto ;
+    padding: 0;
+}
+.calculator .divTableBody .divBarraMoneda{
+    position: relative;
+    width: 100%;
+    background: #4D8E3A;
+    padding: 5px 0;
+    margin: 0;
+    border-top-right-radius: 13px;
+    border-top-left-radius: 13px;
+    clear: both;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.monedas{
+    float: left;
+}
+.monedas:nth-child(1){
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.monedas:nth-child(2) .divTableCell input{
+    color: #fff;
+    padding: 0;
+    width: 150px;
+    font-size: 15px;
+    text-align: right;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    text-align: left
+}
+.monedas:nth-child(2) .divTableCell input:focus{
+    color: #fff;
+    padding: 0;
+    text-align:  left;
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+#moneda{
+    background-color: #4D8E3A;
+    width: 60px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px  white
+}
+.divTableBody{
+    position: relative;
+    clear: both;
+}
+.divisionDeCalculadora{
+    clear: both;
+    border: solid 1px rgb(235, 235, 228);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: -10;
+}
+.divTableCell{
+    float: left;
+}
+.divisionDeCalculadora .divTableCell {
+    border-right: 1px solid rgb(235, 235, 228)
+}
+.divisionDeCalculadora .divTableCell:nth-child(7) {
+    border-right: none;
+}
+.divisionDeCalculadora .divTableCell:nth-child(8) {
+    border-right: none;
+}
+.divisionDeCalculadora .divTableCell p{
+    font-size: 14px;
+    text-align: right;
+    margin-right: 8px
+}
+.divisionDeCalculadora .divTableCell input{
+    padding: 0;
+    width: 138px;
+    font-size: 15px;
+    margin: 0 10px;
+    text-align: right;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+}
+.divisionDeCalculadora .divTableCell input:focus{
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+
+}
+.divTableCell:nth-child(1){
+    float: left;
+    margin-bottom: 0;
+}
+.divTableCell:nth-child(2){
+    float: left;
+    margin-bottom: 0;
+}
+.divTableBody div button{
+    position: relative;
+    top: -45px;
+    left: 980px;
+    border-radius: 25px;
+    padding: 5px 8px; 
+    background: #28a745;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    letter-spacing: 2px;
+    color: #fff;
+    transition: .5s
+
+}
+.divTableBody div button:hover{
+    background: #fff;
+    color: #28a745;
+    border: solid 1px #28a745;
+    transition: .5s
+    
+}
+.calculator .divTableFoot{
+    float: left;
+    clear: both;
+}
+.calculator .divTableFoot .divTableCellTotal{
+    float: left;
+    padding: 25px;
+    background: rgb(235, 235, 228);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-right: 10px
+}
+.calculator .divTableFoot .divTableCellTotal:nth-child(1){
+    border-bottom-left-radius: 13px
+}
+.calculator .divTableFoot .divTableCellTotal p{
+    position: relative;
+    left: -4%;
+    float: left;
+    padding: 3px 6px;
+    letter-spacing: 1px;
+    font-size: 13px;
+    border-radius: 25px;
+    background: rgb(61, 61, 61);
+    color: #fff
+}
+.calculator .divTableFoot .divTableCellTotal input{
+    width: 200px;
+    border: none;
+    background: rgb(235, 235, 228);
+    float: left;
+    text-align: right;
+    font-size: 25px
+}
+.calculator .divTableFoot .divTableCellIcon{
+    float: left;
+}
+.calculator .divTableFoot .divTableCellIcon button{
+    width: 75px;
+    height: 75px;
+    float: left;
+    background: rgb(61, 61, 61);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #fff;
+    border: none;
+    border-radius: 100%;
+    margin-top: 8px;
+    margin-left: 35px;
+    transition: .5s
+}
+.calculator .divTableFoot .divTableCellIcon button:hover{
+    background: #fff;
+    color: rgb(61, 61, 61);
+    border: solid 1px rgb(61, 61, 61);
+    transition: .5s
+}
+
+.calculator .divTableFoot .divTableCellIcon button:focus{
+
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.calculator .divTableFoot .divTableCellIcon button span{
+    font-size: 40px;
+    
+}

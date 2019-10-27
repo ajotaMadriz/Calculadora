@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/fontello.css">
+
+        <title>Profit Calculator</title>
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    </head>
+    <body oncontextmenu="return false">
+        <div id="all">
+            <div class="calculator">
+                <h1 style="text-align: center">Profit Calculator!</h1><br><br>
+                <div class="divTableBody">
+                    <div class="divBarraMoneda">
+                        <div class="monedas">
+                            <p class="" style="color: #fff">Moneda: </p>
+                        </div>
+                        <div class="monedas">
+                            <div class="divTableCell" style="border: none">
+                                <input id="moneda" type="text" step="any"  class="label success" />
+                            </div>
+                        </div><br>
+                    </div>
+                    <div class="divisionDeCalculadora">
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Entrada</p>
+                            </div>
+                            <div>
+                                <input id="entrada"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Moneda En Posesion</p>
+                            </div>
+                            <div>
+                                <input id="monedarest"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Salida</p>
+                            </div>
+                            <div>
+                                <input id="preciosal"   type="number" step="any"  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Cantidad Vendida</p>
+                            </div>
+                            <div>
+                                <input id="cantven"   type="number" step="any"/>
+                            </div>
+                        </div>
+                        <div class="divTableCell" style="display: none">
+                            <div>
+                                <p>Cantidad Restante</p>
+                            </div>
+                            <div style="display:none;">
+                                <input id="cantrest"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit USD</p>
+                            </div>
+                            <div>
+                                <input id="profitusd"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit En Porcentaje</p>
+                            </div>
+                            <div>
+                                <input id="profitporc"   type="number" step="any" disabled  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <button id="calcular" class="btn" >CALCULAR</button>
+                            </div>
+                        </div><br><br><br>
+                    </div>
+                    <div id="row1" style="display:none;" class="divisionDeCalculadora">
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Entrada</p>
+                            </div>
+                            <div>
+                                <input id="entrada1"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Moneda En Posesion</p>
+                            </div>
+                            <div>
+                                <input id="monedarest1"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Salida</p>
+                            </div>
+                            <div>
+                                <input id="preciosal1"   type="number" step="any"  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Cantidad Vendida</p>
+                            </div>
+                            <div>
+                                <input id="cantven1"   type="number" step="any"/>
+                            </div>
+                        </div>
+                        <div class="divTableCell" style="display: none">
+                            <div>
+                                <p>Cantidad Restante</p>
+                            </div>
+                            <div style="display:none;">
+                                <input id="cantrest1"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit USD</p>
+                            </div>
+                            <div>
+                                <input id="profitusd1"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit En Porcentaje</p>
+                            </div>
+                            <div>
+                                <input id="profitporc1"   type="number" step="any" disabled  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div style="display:none;" id="button1" >
+                                <button id="calcular1" class="btn" >CALCULAR</button>
+                            </div>
+                        </div><br><br><br>
+                    </div>
+                    <div id="row2" style="display:none;"  class="divisionDeCalculadora">
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Entrada</p>
+                            </div>
+                            <div>
+                                <input id="entrada2"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Moneda En Posesion</p>
+                            </div>
+                            <div>
+                                <input id="monedarest2"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Salida</p>
+                            </div>
+                            <div>
+                                <input id="preciosal2"   type="number" step="any"  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Cantidad Vendida</p>
+                            </div>
+                            <div>
+                                <input id="cantven2"   type="number" step="any"/>
+                            </div>
+                        </div>
+                        <div class="divTableCell" style="display: none">
+                            <div>
+                                <p>Cantidad Restante</p>
+                            </div>
+                            <div style="display:none;">
+                                <input id="cantrest2"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit USD</p>
+                            </div>
+                            <div>
+                                <input id="profitusd2"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit En Porcentaje</p>
+                            </div>
+                            <div>
+                                <input id="profitporc2"   type="number" step="any" disabled  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div style="display:none;" id="button2" >
+                                <button id="calcular2" class="btn" >CALCULAR</button>
+                            </div>
+                        </div><br><br><br>
+                    </div>
+                    <div id="row3" style="display:none;"  class="divisionDeCalculadora">
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Entrada</p>
+                            </div>
+                            <div>
+                                <input id="entrada3"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Moneda En Posesion</p>
+                            </div>
+                            <div>
+                                <input id="monedarest3"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Salida</p>
+                            </div>
+                            <div>
+                                <input id="preciosal3"   type="number" step="any"  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Cantidad Vendida</p>
+                            </div>
+                            <div>
+                                <input id="cantven3"   type="number" step="any"/>
+                            </div>
+                        </div>
+                        <div class="divTableCell" style="display: none">
+                            <div>
+                                <p>Cantidad Restante</p>
+                            </div>
+                            <div style="display:none;">
+                                <input id="cantrest3"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit USD</p>
+                            </div>
+                            <div>
+                                <input id="profitusd3"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit En Porcentaje</p>
+                            </div>
+                            <div>
+                                <input id="profitporc3"   type="number" step="any" disabled  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div style="display:none;" id="button3" >
+                                <button id="calcular3" class="btn" >CALCULAR</button>
+                            </div>
+                        </div><br><br><br>
+                    </div>
+                    <div id="row4" style="display:none;"  class="divisionDeCalculadora">
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Entrada</p>
+                            </div>
+                            <div>
+                                <input id="entrada4"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Moneda En Posesion</p>
+                            </div>
+                            <div>
+                                <input id="monedarest4"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Salida</p>
+                            </div>
+                            <div>
+                                <input id="preciosal4"   type="number" step="any"  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Cantidad Vendida</p>
+                            </div>
+                            <div>
+                                <input id="cantven4"   type="number" step="any"/>
+                            </div>
+                        </div>
+                        <div class="divTableCell" style="display: none">
+                            <div>
+                                <p>Cantidad Restante</p>
+                            </div>
+                            <div style="display:none;">
+                                <input id="cantrest4"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit USD</p>
+                            </div>
+                            <div>
+                                <input id="profitusd4"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit En Porcentaje</p>
+                            </div>
+                            <div>
+                                <input id="profitporc4"   type="number" step="any" disabled  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div style="display:none;" id="button4" >
+                                <button id="calcular4" class="btn" >CALCULAR</button>
+                            </div>
+                        </div><br><br><br>
+                    </div>
+                    <div id="row5" style="display:none;"  class="divisionDeCalculadora">
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Entrada</p>
+                            </div>
+                            <div>
+                                <input id="entrada5"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Moneda En Posesion</p>
+                            </div>
+                            <div>
+                                <input id="monedarest5"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Salida</p>
+                            </div>
+                            <div>
+                                <input id="preciosal5"   type="number" step="any"  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Cantidad Vendida</p>
+                            </div>
+                            <div>
+                                <input id="cantven5"   type="number" step="any"/>
+                            </div>
+                        </div>
+                        <div class="divTableCell" style="display: none">
+                            <div>
+                                <p>Cantidad Restante</p>
+                            </div>
+                            <div style="display:none;">
+                                <input id="cantrest5"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit USD</p>
+                            </div>
+                            <div>
+                                <input id="profitusd5"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit En Porcentaje</p>
+                            </div>
+                            <div>
+                                <input id="profitporc5"   type="number" step="any" disabled  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div style="display:none;" id="button5" >
+                                <button id="calcular5" class="btn" >CALCULAR</button>
+                            </div>
+                        </div><br><br><br>
+                    </div>
+                    <div id="row6" style="display:none;"  class="divisionDeCalculadora">
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Entrada</p>
+                            </div>
+                            <div>
+                                <input id="entrada6"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Moneda En Posesion</p>
+                            </div>
+                            <div>
+                                <input id="monedarest6"   type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Precio de Salida</p>
+                            </div>
+                            <div>
+                                <input id="preciosal6"   type="number" step="any"  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Cantidad Vendida</p>
+                            </div>
+                            <div>
+                                <input id="cantven6"   type="number" step="any"/>
+                            </div>
+                        </div>
+                        <div class="divTableCell" style="display: none">
+                            <div>
+                                <p>Cantidad Restante</p>
+                            </div>
+                            <div style="display:none;">
+                                <input id="cantrest6"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit USD</p>
+                            </div>
+                            <div>
+                                <input id="profitusd6"   type="number" step="any" disabled />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div>
+                                <p>Profit En Porcentaje</p>
+                            </div>
+                            <div>
+                                <input id="profitporc6"   type="number" step="any" disabled  />
+                            </div>
+                        </div>
+                        <div class="divTableCell">
+                            <div style="display:none;" id="button6">
+                                <button id="calcular6" class="btn" >CALCULAR</button>
+                            </div>
+                        </div><br><br><br>
+                    </div>
+                </div>
+                <div  class="divTableFoot">
+                    <div class="divTableCellTotal">
+                        <p>TOTAL USD</p>
+                        <input id="totalusd" class="totales " type="number" step="any" disabled />
+                    </div>
+                    <div class="divTableCellTotal">
+                        <p>TOTAL EN %</p>
+                        <input id="totalpornc" class="totales " type="number" step="any" disabled  />
+                    </div>
+                    <div class="divTableCellIcon">
+                        <button ><span class="icon-share"></span></button>
+                        <button id='but_screenshot' onclick='screenshot();'><span class="icon-download-cloud"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  
+  
+        <!-- Script 
+                        <input type='button' class="btn btn-success" value='Descargar imagen'>-->
+        <script type='text/javascript'>
+          function screenshot(){
+        
+      
+              var node = document.getElementById('all');
+              domtoimage.toBlob(document.getElementById('all'))
+              .then(function (blob) {
+                  saveAs(blob, 'my-profit.png');    
+              });
+          }
+        </script>
+        
+      
+        <script type='text/javascript'>
+            $("#cantven").change(function(){
+            if(parseFloat($("#cantven").val())>parseFloat($("#monedarest").val()))
+            {
+              alert("Verifique la cantidad de monedas");
+              return
+            }
+          });
+      
+            $('#calcular').click(function(){
+              if( $("#moneda").val().length > 0 && $("#entrada").val().length > 0 && $("#monedarest").val().length > 0 && $("#preciosal").val().length > 0 && $("#cantven").val().length > 0 && parseFloat($("#cantven").val())<=parseFloat($("#monedarest").val())){
+               var cantres=(parseFloat($('#monedarest').val()) - parseFloat($('#cantven').val()));
+                $("#cantrest").val(cantres);
+                var usd=((parseFloat($('#preciosal').val()) - parseFloat($('#entrada').val()))*parseFloat($('#cantven').val()));
+               $("#profitusd").val(usd);
+                var pornc=((usd*100)/(parseFloat($('#entrada').val())*parseFloat($('#monedarest').val())));
+               $("#profitporc").val((parseFloat(pornc)).toFixed(2));
+               if (parseFloat($('#monedarest').val())> parseFloat($('#cantven').val())|| parseFloat($('#monedarest').val())==0) {
+                $("#moneda").prop("disabled", true);
+                $("#entrada1").val($("#entrada").val());
+                $("#entrada1").prop("disabled", true);
+                $('#monedarest1').val(cantres);
+                $("#monedarest1").prop("disabled", true);
+                $("#row1").show();
+                $("#button1").show();
+                $("#totalusd").val(usd);
+                $("#totalpornc").val((parseFloat(pornc)).toFixed(2));
+               }else{
+      
+                //alert("Hola!\nAl parecer hemos terminado\nNos vemos luego");
+                $("#totalusd").val(usd);
+                $("#totalpornc").val((parseFloat(pornc)).toFixed(2));
+               }
+               
+            
+              }else{
+              alert("Hola!\nFalta datos para Calcular o Verifique los datos\nLlenalos e intenta nuevamente");
+              }
+                
+            });
+      </script>
+      
+      <script type='text/javascript'>
+      $("#cantven1").change(function(){
+        if(parseFloat($("#cantven1").val())>parseFloat($("#monedarest1").val()))
+        {
+          alert("Verifique la cantidad de monedas");
+          return
+        }
+      });
+        $('#calcular1').click(function(){
+          if( $("#entrada1").val().length > 0 && $("#monedarest1").val().length > 0 && $("#preciosal1").val().length > 0 && $("#cantven1").val().length > 0 && parseFloat($("#cantven1").val())<=parseFloat($("#monedarest1").val())){
+           var cantres=(parseFloat($('#monedarest1').val()) - parseFloat($('#cantven1').val()));
+            $("#cantrest1").val(cantres);
+            var usd=((parseFloat(parseFloat($('#preciosal1').val())-$('#entrada1').val()))*parseFloat($('#cantven1').val()));
+           $("#profitusd1").val(usd);
+            var pornc=((usd*100)/(parseFloat($('#entrada').val())*parseFloat($('#monedarest').val())));
+           $("#profitporc1").val((parseFloat(pornc)).toFixed(2));
+           if (parseFloat($('#monedarest1').val())> parseFloat($('#cantven1').val())|| parseFloat($('#monedarest1').val())==0){
+                $("#entrada2").val($("#entrada1").val());
+                $("#entrada2").prop("disabled", true);
+                $('#monedarest2').val(cantres);
+                $("#monedarest2").prop("disabled", true);
+                $("#row2").show();
+                $("#button2").show();
+                $("#totalusd").val(parseFloat($('#profitusd').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())).toFixed(2);
+               }else{
+      
+                //alert("Hola!\nAl parecer hemos terminado\nNos vemos luego");
+               
+                $("#totalusd").val(parseFloat($('#profitusd').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())).toFixed(2);
+               }
+           
+        
+          }else{
+          alert("Hola!\nFalta datos para Calcula o Verifique los datos\nLlenalos e intenta nuevamente");
+          }
+            
+        });
+      </script>
+      
+      <script type='text/javascript'>
+        $("#cantven2").change(function(){
+            if(parseFloat($("#cantven2").val())>parseFloat($("#monedarest2").val()))
+            {
+              alert("Verifique la cantidad de monedas");
+              return
+            }
+          });
+      
+        $('#calcular2').click(function(){
+          if( $("#entrada2").val().length > 0 && $("#monedarest2").val().length > 0 && $("#preciosal2").val().length > 0 && $("#cantven2").val().length > 0 && parseFloat($("#cantven2").val())<=parseFloat($("#monedarest2").val())){
+           var cantres=(parseFloat($('#monedarest2').val()) - parseFloat($('#cantven2').val()));
+            $("#cantrest2").val(cantres);
+            var usd=((parseFloat(parseFloat($('#preciosal2').val())-$('#entrada2').val()))*parseFloat($('#cantven2').val()));
+           $("#profitusd2").val(usd);
+            var pornc=((usd*100)/(parseFloat($('#entrada').val())*parseFloat($('#monedarest').val())));
+           $("#profitporc2").val((parseFloat(pornc)).toFixed(2));
+           if (parseFloat($('#monedarest2').val())> parseFloat($('#cantven2').val())|| parseFloat($('#monedarest2').val())==0){
+                $("#entrada3").val($("#entrada2").val());
+                $("#entrada3").prop("disabled", true);
+                $('#monedarest3').val(cantres);
+                $("#monedarest3").prop("disabled", true);
+                $("#row3").show(); 
+                $("#button3").show();
+                $("#totalusd").val(parseFloat($('#profitusd').val())+parseFloat($('#profitusd1').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())+parseFloat($('#profitporc2').val())).toFixed(2);
+               }else{
+      
+                //alert("Hola!\nAl parecer hemos terminado\nNos vemos luego");
+                $("#totalusd").val(parseFloat($('#profitusd').val())+parseFloat($('#profitusd1').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())+parseFloat($('#profitporc2').val())).toFixed(2);
+               
+               }
+           
+        
+          }else{
+          alert("Hola!\nFalta datos para Calcular o Verifique los datos\nLlenalos e intenta nuevamente");
+          }
+            
+        });
+      </script>
+      
+      <script type='text/javascript'>
+        $("#cantven3").change(function(){
+            if(parseFloat($("#cantven3").val())>parseFloat($("#monedarest3").val()))
+            {
+              alert("Verifique la cantidad de monedas");
+              return
+            }
+          });
+      
+        $('#calcular3').click(function(){
+          if( $("#entrada3").val().length > 0 && $("#monedarest3").val().length > 0 && $("#preciosal3").val().length > 0 && $("#cantven3").val().length > 0 && parseFloat($("#cantven3").val())<=parseFloat($("#monedarest3").val())){
+           var cantres=(parseFloat($('#monedarest3').val()) - parseFloat($('#cantven3').val()));
+            $("#cantrest3").val(cantres);
+            var usd=((parseFloat(parseFloat($('#preciosal3').val())-$('#entrada3').val()))*parseFloat($('#cantven3').val()));
+           $("#profitusd3").val(usd);
+            var pornc=((usd*100)/(parseFloat($('#entrada').val())*parseFloat($('#monedarest').val())));
+           $("#profitporc3").val((parseFloat(pornc)).toFixed(2));
+           if (parseFloat($('#monedarest3').val())> parseFloat($('#cantven3').val())|| parseFloat($('#monedarest3').val())==0){
+                $("#entrada4").val($("#entrada3").val());
+                $("#entrada4").prop("disabled", true);
+                $('#monedarest4').val(cantres);
+                $("#monedarest4").prop("disabled", true);
+                $("#row4").show();
+                $("#button4").show();
+                $("#totalusd").val(parseFloat($('#profitusd').val())+parseFloat($('#profitusd1').val())+parseFloat($('#profitusd2').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())+parseFloat($('#profitporc2').val())+parseFloat($('#profitporc3').val())).toFixed(2);
+               
+               }else{
+      
+                //alert("Hola!\nAl parecer hemos terminado\nNos vemos luego");
+                $("#totalusd").val(parseFloat($('#profitusd').val())+parseFloat($('#profitusd1').val())+parseFloat($('#profitusd2').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())+parseFloat($('#profitporc2').val())+parseFloat($('#profitporc3').val())).toFixed(2);
+               
+               }
+           
+        
+          }else{
+          alert("Hola!\nFalta datos para Calcular o Verifique los datos\nLlenalos e intenta nuevamente");
+          }
+            
+        });
+      </script>
+      
+      <script type='text/javascript'>
+        $("#cantven4").change(function(){
+            if(parseFloat($("#cantven4").val())>parseFloat($("#monedarest4").val()))
+            {
+              alert("Verifique la cantidad de monedas");
+              return
+            }
+          });
+      
+        $('#calcular4').click(function(){
+          if( $("#entrada4").val().length > 0 && $("#monedarest4").val().length > 0 && $("#preciosal4").val().length > 0 && $("#cantven4").val().length > 0 && parseFloat($("#cantven4").val())<=parseFloat($("#monedarest4").val())){
+           var cantres=(parseFloat($('#monedarest4').val()) - parseFloat($('#cantven4').val()));
+            $("#cantrest4").val(cantres);
+            var usd=((parseFloat(parseFloat($('#preciosal4').val())-$('#entrada4').val()))*parseFloat($('#cantven4').val()));
+           $("#profitusd4").val(usd);
+            var pornc=((usd*100)/(parseFloat($('#entrada').val())*parseFloat($('#monedarest').val())));
+           $("#profitporc4").val((parseFloat(pornc)).toFixed(2));
+           if (parseFloat($('#monedarest4').val())> parseFloat($('#cantven4').val())|| parseFloat($('#monedarest4').val())==0){
+                $("#entrada5").val($("#entrada4").val());
+                $("#entrada5").prop("disabled", true);
+                $('#monedarest5').val(cantres);
+                $("#monedarest5").prop("disabled", true);
+                $("#row5").show(); 
+                $("#button5").show();
+                $("#totalusd").val(parseFloat($('#profitusd').val())+parseFloat($('#profitusd1').val())+parseFloat($('#profitusd2').val())+parseFloat($('#profitusd3').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())+parseFloat($('#profitporc2').val())+parseFloat($('#profitporc3').val())+parseFloat($('#profitporc4').val())).toFixed(2);
+               
+               }else{
+      
+                //alert("Hola!\nAl parecer hemos terminado\nNos vemos luego");
+                $("#totalusd").val(parseFloat($('#profitusd').val())+parseFloat($('#profitusd1').val())+parseFloat($('#profitusd2').val())+parseFloat($('#profitusd3').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())+parseFloat($('#profitporc2').val())+parseFloat($('#profitporc3').val())+parseFloat($('#profitporc4').val())).toFixed(2);
+               
+               }
+           
+        
+           
+        
+          }else{
+          alert("Hola!\nFalta datos para Calcular o Verique los datos\nLlenalos e intenta nuevamente");
+          }
+            
+        });
+      </script>
+      
+      <script type='text/javascript'>
+        $("#cantven5").change(function(){
+            if(parseFloat($("#cantven5").val())>parseFloat($("#monedarest5").val()))
+            {
+              alert("Verifique la cantidad de monedas");
+              return
+            }
+          });
+      
+        $('#calcular5').click(function(){
+          if( $("#entrada5").val().length > 0 && $("#monedarest5").val().length > 0 && $("#preciosal5").val().length > 0 && $("#cantven5").val().length > 0 && parseFloat($("#cantven5").val())<=parseFloat($("#monedarest5").val())){
+           var cantres=(parseFloat($('#monedarest5').val()) - parseFloat($('#cantven5').val()));
+            $("#cantrest5").val(cantres);
+            var usd=((parseFloat(parseFloat($('#preciosal5').val())-$('#entrada5').val()))*parseFloat($('#cantven5').val()));
+           $("#profitusd5").val(usd);
+            var pornc=((usd*100)/(parseFloat($('#entrada').val())*parseFloat($('#monedarest').val())));
+           $("#profitporc5").val((parseFloat(pornc)).toFixed(2));
+           if (parseFloat($('#monedarest5').val())> parseFloat($('#cantven5').val())|| parseFloat($('#monedarest5').val())==0){
+                $("#entrada6").val($("#entrada5").val());
+                $("#entrada6").prop("disabled", true);
+                $('#monedarest6').val(cantres);
+                $("#monedarest6").prop("disabled", true);
+                $("#row6").show();
+                $("#button6").show();
+                $("#totalusd").val(parseFloat($('#profitusd').val())+parseFloat($('#profitusd1').val())+parseFloat($('#profitusd2').val())+parseFloat($('#profitusd3').val())+parseFloat($('#profitusd4').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())+parseFloat($('#profitporc2').val())+parseFloat($('#profitporc3').val())+parseFloat($('#profitporc4').val())+parseFloat($('#profitporc5').val())).toFixed(2);
+               
+               }else{
+      
+                //alert("Hola!\nAl parecer hemos terminado\nNos vemos luego");
+                $("#totalusd").val(parseFloat($('#profitusd').val())+parseFloat($('#profitusd1').val())+parseFloat($('#profitusd2').val())+parseFloat($('#profitusd3').val())+parseFloat($('#profitusd4').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())+parseFloat($('#profitporc2').val())+parseFloat($('#profitporc3').val())+parseFloat($('#profitporc4').val())+parseFloat($('#profitporc5').val())%parseInt(6)).toFixed(2);
+               
+               }
+           
+        
+          }else{
+          alert("Hola!\nFalta datos para Calcular o Verifique los datos\nLlenalos e intenta nuevamente");
+          }
+            
+        });
+      </script>
+      <script type='text/javascript'>
+        $("#cantven6").change(function(){
+            if(parseFloat($("#cantven6").val())>parseFloat($("#monedarest6").val()))
+            {
+              alert("Verifique la cantidad de monedas");
+              return
+            }
+          });
+      
+        $('#calcular6').click(function(){
+          if( $("#entrada6").val().length > 0 && $("#monedarest6").val().length > 0 && $("#preciosal6").val().length > 0 && $("#cantven6").val().length > 0 && parseFloat($("#cantven6").val())<=parseFloat($("#monedarest6").val())){
+           var cantres=(parseFloat($('#monedarest6').val()) - parseFloat($('#cantven6').val()));
+            $("#cantrest6").val(cantres);
+            var usd=((parseFloat( parseFloat($('#preciosal6').val())-$('#entrada6').val()))*parseFloat($('#cantven6').val()));
+           $("#profitusd6").val(usd);
+            var pornc=((usd*100)/(parseFloat($('#entrada').val())*parseFloat($('#monedarest').val())));
+           $("#profitporc6").val((parseFloat(pornc)).toFixed(2));
+           if (parseFloat($('#monedarest6').val())> parseFloat($('#cantven6').val())|| parseFloat($('#monedarest6').val())==0){
+                $("#entrada7").val($("#entrada6").val());
+                $("#entrada7").prop("disabled", true);
+                $('#monedarest7').val(cantres);
+                $("#monedarest7").prop("disabled", true);
+                $("#totalusd").val(parseFloat($('#profitusd').val())+parseFloat($('#profitusd1').val())+parseFloat($('#profitusd2').val())+parseFloat($('#profitusd3').val())+parseFloat($('#profitusd4').val())+parseFloat($('#profitusd5').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())+parseFloat($('#profitporc2').val())+parseFloat($('#profitporc3').val())+parseFloat($('#profitporc4').val())+parseFloat($('#profitporc5').val())+parseFloat($('#profitporc6').val())).toFixed(2);
+               
+               
+               }else{
+      
+                //alert("Hola!\nAl parecer hemos terminado\nNos vemos luego");
+                $("#totalusd").val(parseFloat($('#profitusd').val())+parseFloat($('#profitusd1').val())+parseFloat($('#profitusd2').val())+parseFloat($('#profitusd3').val())+parseFloat($('#profitusd4').val())+parseFloat($('#profitusd5').val())+usd);
+                $("#totalpornc").val( parseFloat($('#profitporc').val())+parseFloat($('#profitporc1').val())+parseFloat($('#profitporc2').val())+parseFloat($('#profitporc3').val())+parseFloat($('#profitporc4').val())+parseFloat($('#profitporc5').val())+parseFloat($('#profitporc6').val())).toFixed(2);
+               
+               }
+        
+          }else{
+          alert("Hola!\nFalta datos para Calcular o Verifique los datos\nLlenalos e intenta nuevamente");
+          }
+            
+        });
+      </script>
+              
+    </body>
+</html>
